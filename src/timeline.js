@@ -13,6 +13,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import RaisedButton from 'material-ui/RaisedButton';
+import ActionAndroid from 'material-ui/svg-icons/';
 
 const noop = function () { }
 const events = [
@@ -211,6 +212,7 @@ export default class Timeline extends Component {
 
     const style = {
       margin: 12,
+      fontSize: 20
     };
 
     return (
@@ -223,8 +225,8 @@ export default class Timeline extends Component {
             </div>
             <br />
             <div className="button-container">
-              <RaisedButton label="Zoom In" primary={true} name="zoomIn" value="+" onClick={this.zoomIn.bind(this)} style={style} />
-              <RaisedButton label="Zoom Out" primary={true} name="zoomOut" value="-" onClick={this.zoomOut.bind(this)} style={style} />
+              Zoom In: <RaisedButton label="+" primary={true} name="zoomIn" value="+" onClick={this.zoomIn.bind(this)} style={style} />
+              Zoom Out: <RaisedButton label="-" primary={true} name="zoomOut" value="-" onClick={this.zoomOut.bind(this)} style={style} />
             </div>
             <br />
             <br />

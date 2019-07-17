@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background: #000;
+  color: #fff;
 }
 
 .App-logo {
@@ -30,6 +31,21 @@
 .datepicker-container > div, .button-container > div {
   display: inline;
   margin: -10px 10px 10px;
+}
+
+.button-container > div{
+  min-width: auto !important;
+  background: transparent !important;
+}
+
+.button-container button{
+  border-radius: 50% !important;
+}
+
+.button-container > div span{
+  font-size: 20px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
 }
 
 .vis-chart, .vis-time-axis .vis-text{
