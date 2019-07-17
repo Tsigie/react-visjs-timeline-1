@@ -216,13 +216,13 @@ export default class Timeline extends Component {
     return (
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-          <div>
-            <div>
+          <div className="chart-header">
+            <div className="datepicker-container">
               <DatePicker floatingLabelText="Start Date" name="startDate" onChange={this.startDate.bind(this)} />
               <DatePicker floatingLabelText="End Date" name="endDate" onChange={this.endDate.bind(this)} />
             </div>
             <br />
-            <div>
+            <div className="button-container">
               <RaisedButton label="Zoom In" primary={true} name="zoomIn" value="+" onClick={this.zoomIn.bind(this)} style={style} />
               <RaisedButton label="Zoom Out" primary={true} name="zoomOut" value="-" onClick={this.zoomOut.bind(this)} style={style} />
             </div>
@@ -230,7 +230,7 @@ export default class Timeline extends Component {
             <br />
           </div>
         </MuiThemeProvider>
-        <div ref="container" />
+        <div ref="container" className="vis-chart"/>
       </div>
     )
   }

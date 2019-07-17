@@ -19,6 +19,23 @@
   font-size: large;
 }
 
+.datepicker-container, .chart-header{
+  display: flex;
+}
+
+.datepicker-container *, .button-container * {
+  color: #fff !important;
+}
+
+.datepicker-container > div, .button-container > div {
+  display: inline;
+  margin: -10px 10px 10px;
+}
+
+.vis-chart, .vis-time-axis .vis-text{
+  color: #fff !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
