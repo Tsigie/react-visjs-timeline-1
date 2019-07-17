@@ -10,7 +10,9 @@ import omit from 'lodash/omit'
 import keys from 'lodash/keys'
 import DatePicker from 'material-ui/DatePicker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import FlatButton from 'material-ui/FlatButton';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const noop = function () { }
 const events = [
@@ -194,12 +196,6 @@ export default class Timeline extends Component {
     const formatedMonth = (month.length === 1) ? (`0${month}`) : month;
     const day = date.getDate().toString();
     const formatedDay = (day.length === 1) ? (`0${day}`) : day;
-    const hour = date.getHours().toString();
-    const formatedHour = (hour.length === 1) ? (`0${hour}`) : hour;
-    const minute = date.getMinutes().toString();
-    const formatedMinute = (minute.length === 1) ? (`0${minute}`) : minute;
-    const second = date.getSeconds().toString();
-    const formatedSecond = (second.length === 1) ? (`0${second}`) : second;
     return `${year}-${formatedMonth}-${formatedDay}`;
   };
 
@@ -212,20 +208,27 @@ export default class Timeline extends Component {
   }
 
   render() {
+
+    const style = {
+      margin: 12,
+    };
+
     return (
       <div>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <div>
-            <DatePicker floatingLabelText="Start Date" name="startDate" onChange={this.startDate.bind(this)} />
-            <DatePicker floatingLabelText="End Date" name="endDate" onChange={this.endDate.bind(this)} />
+            <div>
+              <DatePicker floatingLabelText="Start Date" name="startDate" onChange={this.startDate.bind(this)} />
+              <DatePicker floatingLabelText="End Date" name="endDate" onChange={this.endDate.bind(this)} />
+            </div>
+            <br />
+            <div>
+              <RaisedButton label="Zoom In" primary={true} name="zoomIn" value="+" onClick={this.zoomIn.bind(this)} style={style} />
+              <RaisedButton label="Zoom Out" primary={true} name="zoomOut" value="-" onClick={this.zoomOut.bind(this)} style={style} />
+            </div>
+            <br />
+            <br />
           </div>
-          <br/>          
-          <div>
-            <FlatButton label="Zoom In" primary={true} name="zoomIn" value="+" onClick={this.zoomIn.bind(this)} />
-            <FlatButton label="Zoom Out" primary={true} name="zoomOut" value="-" onClick={this.zoomOut.bind(this)} />
-          </div>
-          <br/>          
-          <br/>          
         </MuiThemeProvider>
         <div ref="container" />
       </div>

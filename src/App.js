@@ -4,11 +4,6 @@ import Timeline from './timeline';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
-  }
-
- 
   render() {
     const options = {
       height: '300px',
